@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.fn.fullpage({
+		slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+		menu: '#menu',
+		afterRender: function(){
+			$('.screen-main span').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[2] + 'px',
+					top: $arr[3] + 'px'
+				}, 1000);
+			});
+			$('.inner a').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[0] + 'px',
+					top: $arr[1] + 'px'
+				}, 500);
+			});
+		},
+		afterLoad: function(anchorLink, index){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeIn(1000);
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeOut(1000);
+			}
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+<ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">TOP</a></li>
+	<li data-menuanchor="page2"><a href="#page2">photoshop</a></li>
+	<li data-menuanchor="page3"><a href="#page3">界面设计</a></li>
+	<li data-menuanchor="page4"><a href="#page4">交互阶段</a></li>
+	<li data-menuanchor="page5"><a href="#page5">代码阶段</a></li>
+	<li data-menuanchor="page6"><a href="#page6">联系方式</a></li>
+</ul>
+
+<div class="section section1">
+	<div class="screen-main">
+		<span class="shi1"  rel="-501,-455,426,200">个</span>
+		<span class="shi2"  rel="1387,-359,447,200">人</span>
+		<span class="shi3"  rel="-619,-359,615,199">主</span>
+		<span class="shi4"  rel="1295,-259,676,200">页</span>
+		<span class="ji1"  rel="-328,-589,448,315">M</span>
+		<span class="ji2"  rel="1648,-487,489,319">y</span>
+		<span class="ji3"  rel="-244,-488,582,317">H</span>
+		<span class="year2"  rel="1686,-213,695,314">o</span>
+		<span class="year0"  rel="-266,-189,745,315">m</span>
+		<span class="year1"  rel="1792,-210,818,315">e</span>
+		<span class="year3"  rel="-173,-207,547,433">g</span>
+		<span class="slogen"  rel="1462,-106,517,434">o!!!</span>
+	</div>
+</div>
+
+<div class="section">
+	<div class="science-inner inner">
+		<!--<a class="stiteml st1" href="javascript:void(0)" rel="0,-350,0,7">网络机顶盒</a>-->
+		<!--<a class="stiteml st2" href="javascript:void(0)" rel="0,-350,0,37">干细胞人造肉</a>-->
+		<!--<a class="stiteml st3" href="javascript:void(0)" rel="0,-350,0,68">3D涂鸦笔</a>-->
+		<!--<a class="stiteml st4" href="javascript:void(0)" rel="0,-350,0,88">H7N9</a>-->
+		<a class="stiteml st5" href="javascript:void(0)" rel="1010,116,554,116">第一周</a>
+		<a class="stiteml st6" href="javascript:void(0)" rel="1010,146,554,146">photoshop</a>
+		<a class="stiteml st7" href="javascript:void(0)" rel="1010,163,554,163">主要作品</a>
+		<a class="stiteml st8" href="javascript:void(0)" rel="1010,236,554,236">制作图标&图片处理</a>
+		<a class="stitemr st9" href="javascript:void(0)" rel="-710,346,255,346">一颗做作的鸡蛋</a>
+		<a class="stitemr st10" href="javascript:void(0)" rel="-710,376,277,376">非主流酒瓶</a>
+		<a class="stitemr st11" href="javascript:void(0)" rel="-710,406,211,406">黎明前的曙光图标</a>
+		<a class="stitemr st12" href="javascript:void(0)" rel="-710,433,14,433">强迫症的第四个图</a>
+		<!--<a class="stiteml st13" href="javascript:void(0)" rel="761,1050,761,506">上帝粒子</a>-->
+		<!--<a class="stiteml st14" href="javascript:void(0)" rel="761,1050,761,523">比特币</a>-->
+		<!--<a class="stiteml st15" href="javascript:void(0)" rel="761,1050,761,587">ISON彗星</a>-->
+		<!--<a class="stiteml st16" href="javascript:void(0)" rel="761,1050,761,622">玉兔号</a>-->
+		<!--<a class="stiteml st17" href="javascript:void(0)" rel="761,1050,761,656">4G</a>-->
+		<a class="stimg1" href="javascript:void(0)" rel="0,-350,0,153"><img width="181" height="166" src="images/)N4}6A849IB5K1P$Q218$`Q.png"></a>
+		<a class="stimg2" href="javascript:void(0)" rel="980,2,220,2"><img width="250" height="327" src="images/jiu.png"></a>
+		<a class="stimg3" href="javascript:void(0)" rel="-407,350,413,350"><img width="313" height="215" src="images/pic.png"></a>
+		<a class="stimg4" href="javascript:void(0)" rel="761,850,761,350"><img width="200" height="155" src="images/F5N(28IQN_D3$BTWD0KUTUH.png"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="famous-inner inner">
+		<a class="faitemr fa1" href="javascript:void(0)"  rel="90,-180,90,68">第二周</a>
+		<a class="faitemr fa2" href="javascript:void(0)" rel="90,-180,20,93">移动端外卖App</a>
+		<a class="faitemr fa3" href="javascript:void(0)" rel="0,-180,0,113">界面设计</a>
+		<!--<a class="faiteml fa4" href="javascript:void(0)" rel="1280,203,235,203">撒切尔夫人</a>-->
+		<!--<a class="faiteml fa5" href="javascript:void(0)" rel="1280,227,235,227">安吉丽娜•朱莉</a>-->
+		<!--<a class="faiteml fa6" href="javascript:void(0)" rel="1080,290,235,290">雷政富</a>-->
+		<!--<a class="faiteml fa7" href="javascript:void(0)" rel="-300,317,100,317,">斯诺登</a>-->
+		<!--<a class="faiteml fa8" href="javascript:void(0)" rel="-300,533,149,533">陈永洲</a>-->
+		<!--<a class="faiteml fa9" href="javascript:void(0)" rel="-300,563,149,563">埃隆·马斯克</a>-->
+		<!--<a class="faiteml fa10" href="javascript:void(0)" rel="-300,593,149,593">曼德拉</a>-->
+		<a class="faiteml fa11" href="javascript:void(0)" rel="1370,383,666,383">首页</a>
+		<a class="faiteml fa12" href="javascript:void(0)" rel="1370,450,666,450">商家详情页</a>
+		<a class="faiteml fa13" href="javascript:void(0)" rel="1370,480,666,480">提交订单页</a>
+		<a class="faiteml fa14" href="javascript:void(0)" rel="1370,510,666,510">登录注册页</a>
+		<!--<a class="faiteml fa15" href="javascript:void(0)" rel="1370,540,666,540">万爱花</a>-->
+		<a class="faimg1" href="javascript:void(0)" rel="200,-180,200,10"><img width="146" height="226" src="images/shouye1.png"></a>
+		<a class="faimg2" href="javascript:void(0)" rel="980,77,700,50"><img width="200" height="328" src="images/shangjia2.png"></a>
+		<a class="faimg3" href="javascript:void(0)" rel="980,366,366,107"><img width="285" height="433" src="images/dingdan3.png"></a>
+		<a class="faimg4" href="javascript:void(0)" rel="-300,387,58,271"><img width="211" height="290" src="images/denglu4.png"></a>
+	</div>
+</div>
+<div class="section">
+	<div class="social-inner inner">
+		<a class="soiteml so1" href="javascript:void(0)" rel="450,-175,450,51">外卖APP</a>
+		<a class="soiteml so2" href="javascript:void(0)" rel="450,-175,450,110">第三周</a>
+		<a class="soiteml so3" href="javascript:void(0)" rel="450,-175,450,140">继承界面设计的App</a>
+		<a class="soiteml so4" href="javascript:void(0)" rel="980,228,450,228">交互事件</a>
+		<a class="soiteml so5" href="javascript:void(0)" rel="980,258,450,258">banner轮播</a>
+		<a class="soiteml so6" href="javascript:void(0)" rel="980,288,450,288">鼠标移入移出</a>
+		<a class="soiteml so7" href="javascript:void(0)" rel="980,340,450,340">烧脑</a>
+		<!--<a class="soiteml so8" href="javascript:void(0)" rel="980,363,450,363">十八届三中全会</a>-->
+		<!--<a class="soiteml so9" href="javascript:void(0)" rel="980,428,450,428">美国政府停摆</a>-->
+		<a class="soiteml so10" href="javascript:void(0)" rel="-405,369,162,369">UI中国</a>
+		<a class="soiteml so11" href="javascript:void(0)" rel="-405,434,162,434">web端</a>
+		<a class="soiteml so12" href="javascript:void(0)" rel="-405,464,162,464">交互设计</a>
+		<!--<a class="soitemr so13" href="javascript:void(0)" rel="15,850,15,520">广州恒大足球俱乐部</a>-->
+		<!--<a class="soitemr so14" href="javascript:void(0)" rel="376,1050,376,585">单独二胎</a>-->
+		<!--<a class="soitemr so15" href="javascript:void(0)" rel="376,1050,357,612">中国式放假</a>-->
+		<a class="soimg1" href="javascript:void(0)" rel="156,-175,155,26"><img width="270" height="160" src="images/uiChina.png"></a>
+		<a class="soimg2" href="javascript:void(0)" rel="-405,186,155,186"><img width="270" height="165" src="images/uiChina1.png"></a>
+		<a class="soimg3" href="javascript:void(0)" rel="980,186,683,106"><img width="200" height="403" src="images/waimaiapp.png"></a>
+		<a class="soimg4" href="javascript:void(0)" rel="507,850,399,406"><img width="196" height="146" src="images/jingdai.png"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="net-inner inner">
+		<!--<a class="netitemr net1" href="javascript:void(0)" rel="19,-240,19,56">剁手族</a>-->
+		<!--<a class="netitemr net2" href="javascript:void(0)" rel="0,-240,086">喜大普奔</a>-->
+		<!--<a class="netitemr net3" href="javascript:void(0)" rel="0,-240,116">累觉不爱</a>-->
+		<!--<a class="netitemr net4" href="javascript:void(0)" rel="19,-240,19,146">陈欧体</a>-->
+		<!--<a class="netitemr net5" href="javascript:void(0)" rel="-54,-240,-54,176">为什么放弃治疗</a>-->
+		<!--<a class="netitemr net6" href="javascript:void(0)" rel="-32,-240,-32,206">大概8点20发</a>-->
+		<a class="netiteml net7" href="javascript:void(0)" rel="980,-1,449,-1">代码阶段</a>
+		<a class="netiteml net8" href="javascript:void(0)" rel="980,28,449,28">主要项目</a>
+		<a class="netiteml net9" href="javascript:void(0)" rel="980,50,449,50">天气预报</a>
+		<a class="netiteml net10" href="javascript:void(0)"  rel="980,116,449,116">扫码查看</a>
+		<a class="netiteml net11" a href="javascript:void(0)"  rel="980,146,449,146">不愿意扫就直接点吧</a>
+		<a class="netiteml net12" a href="javascript:void(0)"  rel="980,184,449,184">素馨花艺</a>
+		<a class="netitemr net13" a href="javascript:void(0)"  rel="-435,261,265,261">js&jQuery</a>
+		<a class="netitemr net14" a href="javascript:void(0)"  rel="-435,291,103,291">小米商城</a>
+		<a class="netitemr net15" a href="javascript:void(0)" rel="-435,351,8,351">缤客酒店</a>
+		<!--<a class="netitemr net16" a href="javascript:void(0)"  rel="-435,428,63,428">内什么</a>-->
+		<!--<a class="netitemr net17" a href="javascript:void(0)"  rel="-435,458,63,458">涨姿势</a>-->
+		<!--<a class="netiteml net18" a href="javascript:void(0)" style="left: 449px; top: 578px;" rel="449,1140,449,578">上头条</a>-->
+		<!--<a class="netiteml net19" a href="javascript:void(0)" style="left: 449px; top: 608px;" rel="449,1140,449,608">妈妈再打我一次</a>-->
+		<!--<a class="netiteml net20" a href="javascript:void(0)" style="left: 449px; top: 638px;" rel="449,1140,449,638">因霾劝菜</a>-->
+		<a class="netimg1" a href="https://londonl.github.io/app-weather/" rel="139,-240,253,41"><img width="200" height="200" src="images/tianqi.png"netimg2" a href="javascript:void(0)" rel="980,96,809,96"></a>
+		<a class="netimg4" a href="https://londonl.github.io/suxin/首页.html" rel="451,850,792,27"><img width="150" height="150" src="images/suxin.png" ></a>
+		<a class="netimg3" a href="https://londonl.github.io/xiaomi/" rel="-435,431,179,431"><img width="200" height="200" src="images/xiaomi.png"></a>
+		<a class="netimg4" a href="https://londonl.github.io/binke/缤客.html" rel="451,850,451,267"><img width="378" height="311" src="images/binke.png"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="zanzhu">
+		<h2>联系方式</h2>
+		<div class="zanzhu-con">
+			<a href="javascript:void(0)"><img width="250" height="245" src="images/IMG_0822_看图王.jpg"></a>
+			<a href="javascript:void(0)"><img width="250" height="225" src="images/专业电子信息工程.png"></a>
+			<!--<a href="javascript:void(0)"><img width="240" height="160" src="images/jianjie.png"></a>-->
+			<a href="javascript:void(0)"><img width="260" height="160" src="images/jianjie.png"></a>
+			<!--<a href="javascript:void(0)"><img width="190" height="76" src="images/zhejiangjiaotong.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/hubeijiaotong.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/xichuanwenyi.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/hunanjiaotong.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/heibeixinwen.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/weibo.png"></a>-->
+		</div>
+	</div>
+</div>
+</body>
+</html>
